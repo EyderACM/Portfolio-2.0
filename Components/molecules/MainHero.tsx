@@ -7,7 +7,7 @@ import { DescriptionText } from '../atoms/DescriptionText';
 export const MainHero = () => {
     const [word, setWord] = useState('');
     useEffect(() => {      
-      typewriter(["SWE Student", "Book Lover", "Full-Stack Developer"], 600);
+      typewriter(["SWE Student", "Book Lover", "Full-Stack Developer", "Passionate Learner"], 600);
     }, [])
 
     const typewriter = (words: string[], wait: any = 3000) => {
@@ -20,7 +20,7 @@ export const MainHero = () => {
     const type = ({wordIndex, words, isDeleting, txt, wait}: any) => {
       const current = wordIndex % words.length;
       const fullTxt = words[current];
-      let typeSpeed = 300;
+      let typeSpeed = 250;
       if(isDeleting){
         txt = fullTxt.substring(0, txt.length - 1);
       } else {
@@ -29,7 +29,7 @@ export const MainHero = () => {
       
       setWord(txt);
 
-      typeSpeed = isDeleting ? typeSpeed/3 :typeSpeed;
+      typeSpeed = isDeleting ? typeSpeed/4 :typeSpeed;
 
       if(!isDeleting && txt === fullTxt){
         typeSpeed = wait;
@@ -46,7 +46,7 @@ export const MainHero = () => {
     return (
       <MainHeroWrapper>        
         <SplashText>I'm Eyder</SplashText>
-        <DescriptionText>a {word}</DescriptionText>
+        <DescriptionText>a&nbsp;{word}</DescriptionText>
       </MainHeroWrapper>
     )
 }
