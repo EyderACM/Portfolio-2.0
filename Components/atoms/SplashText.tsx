@@ -3,7 +3,8 @@ import { pixelToRem } from '../../utils/pixelToRem';
 
 export const SplashText = styled.h1`
     font-size: ${pixelToRem(50)};
-    font-family: 'Montserrat';
+    font-family: 'Montserrat';    
     font-weight: 500;
+    margin: 0;
     text-align: center;
 `;

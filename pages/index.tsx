@@ -3,7 +3,7 @@ import { Container } from 'next/app';
 import { Navbar } from '../Components/molecules/Navbar';
 import { ContentWrapper } from '../Components/atoms/ContentWrapper';
 import { createGlobalStyle } from 'styled-components';
-import { SplashText } from '../Components/atoms/SplashText';
+import { MainHero } from '../Components/molecules/MainHero';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -23,7 +23,7 @@ const Main = () => {
 					</head>
 					<ContentWrapper>					
 						<Navbar />
-						<SplashText>I'm Eyder</SplashText>
+						<MainHero />
 					</ContentWrapper>
         </Container>
     );
