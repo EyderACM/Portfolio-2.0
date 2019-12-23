@@ -9,7 +9,7 @@ import { OrangeBlobImage } from '../atoms/OrangeBlobImage';
 import { Container } from 'next/app';
 import { pixelToRem } from '../../utils/pixelToRem';
 // @ts-ignore
-import { Circ, Back, TimelineMax, Power3 } from 'gsap/dist/gsap';
+import { Circ, Back, TimelineMax, Power3, TweenMax } from 'gsap/dist/gsap';
 
 // @ts-ignore
 import blueBlob from '../../static/images/blueBlob.svg';
@@ -30,21 +30,22 @@ export const MainHero = () => {
     let writterText: any = useRef(null);
     let linkedInBlob: any = useRef(null);
     let githubBlob: any = useRef(null);
-    let twitterBlob: any = useRef(null);
-    
-    const animateOnStartup = () => {        
-      const tl = new TimelineMax({});            
+    let twitterBlob: any = useRef(null);    
+    const tl = new TimelineMax({delay: 1});     
+        
+    const animateOnStartup = () => {                
+      TweenMax.to(homeScreen, 0, {css: {visibility: 'visible'}});
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
       tl.to(orangeBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeInOut}, "-=.7");
-      tl.from(linkedInBlob, .8, {y: 600, ease: Circ.easeOut});
-      tl.from(githubBlob, .8, {y: 600, ease: Circ.easeOut}, "-=.3");
-      tl.from(twitterBlob, .8, {y: 600, ease: Circ.easeOut}, "-=.4");
+      tl.from(linkedInBlob, .7, {y: 600, ease: Circ.easeOut});
+      tl.from(githubBlob, .7, {y: 600, ease: Circ.easeOut}, "-=.3");
+      tl.from(twitterBlob, .7, {y: 600, ease: Circ.easeOut}, "-=.4");
       tl.from(titleText, .8, { opacity: 0, ease: Power3.easeInOut, y:20});
       tl.from(writterText, .8, { opacity: 0, ease: Circ.easeOut}, "-=.2");
     }
 
-    useEffect(() => {      
+    useEffect(() => {            
       typewriter(["SWE Student", "Book Lover", "Full-Stack Developer", "Passionate Learner"], 600);      
       animateOnStartup();
     }, [])    
@@ -52,7 +53,7 @@ export const MainHero = () => {
       const wordIndex: number = 0;
       const txt = '';           
       let isDeleting = false;           
-      type({wordIndex, words, isDeleting, txt, wait});
+      setTimeout(() => type({wordIndex, words, isDeleting, txt, wait}), 4000);
     };
 
     const type = ({wordIndex, words, isDeleting, txt, wait}: any) => {

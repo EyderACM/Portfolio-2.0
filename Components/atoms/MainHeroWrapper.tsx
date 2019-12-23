@@ -6,4 +6,5 @@ export const MainHeroWrapper = styled.div`
     flex-direction: column;
     flex-grow: 4;
     justify-content: center;
+    visibility: hidden;
 `;

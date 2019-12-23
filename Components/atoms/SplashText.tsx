@@ -6,7 +6,7 @@ export const SplashText = styled.h1`
     font-size: ${pixelToRem(50)};
     font-family: 'Montserrat';    
     font-weight: 500;
-    margin-bottom: ${pixelToRem(10)};
+    margin-bottom: ${pixelToRem(30)};
     margin-top: ${pixelToRem(20)};
     text-align: center;    
 
