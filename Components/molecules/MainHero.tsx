@@ -24,14 +24,18 @@ export const MainHero = () => {
     let titleText: any = useRef(null);
     let writterText: any = useRef(null);
 
-    useEffect(() => {      
-      typewriter(["SWE Student", "Book Lover", "Full-Stack Developer", "Passionate Learner"], 600);
+    const animateOnStartup = () => {
       const tl = new TimelineMax({});
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
       tl.to(orangeBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeInOut}, "-=.7");
       tl.from(titleText, .8, { opacity: 0, ease: Circ.easeInOut});
       tl.from(writterText, .8, { opacity: 0, ease: Circ.easeOut}, "-=.2");
+    }
+
+    useEffect(() => {      
+      typewriter(["SWE Student", "Book Lover", "Full-Stack Developer", "Passionate Learner"], 600);      
+      animateOnStartup();
     }, [])    
     const typewriter = (words: string[], wait: any = 3000) => {
       const wordIndex: number = 0;
