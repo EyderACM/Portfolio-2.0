@@ -9,6 +9,8 @@ import { OrangeBlobImage } from '../atoms/OrangeBlobImage';
 import { Container } from 'next/app';
 import { pixelToRem } from '../../utils/pixelToRem';
 import { Circ, Back, TimelineMax } from 'gsap';
+import { gsap } from "gsap/dist/gsap"
+
 // @ts-ignore
 import blueBlob from '../../static/images/blueBlob.svg';
 // @ts-ignore
