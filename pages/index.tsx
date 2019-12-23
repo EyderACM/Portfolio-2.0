@@ -6,15 +6,6 @@ import { createGlobalStyle } from 'styled-components';
 import { MainHero } from '../Components/molecules/MainHero';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 
-const GlobalStyle = createGlobalStyle`
-@font-face {
-    font-family: Montserrat;
-    font-display: auto;
-    src: url('../../static/fonts/Montserrat-Light.ttf');
-    src: url('../../static/fonts/Montserrat-Regular.ttf');
-    src: url('../../static/fonts/Montserrat-Bold.ttf');
-}
-`;
 
 const Main = () => {
 
@@ -23,7 +14,6 @@ const Main = () => {
 					<head>            
 							<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet"/>
 					</head>
-					<GlobalStyle />
 					<ContentWrapper>					
 						<Navbar />
 						<MainHero />
