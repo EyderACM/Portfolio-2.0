@@ -24,7 +24,7 @@ export const MainHero = () => {
     let titleText: any = useRef(null);
     let writterText: any = useRef(null);
 
-    const animateOnStartup = () => {
+    const animateOnStartup = () => {        
       const tl = new TimelineMax({});      
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
