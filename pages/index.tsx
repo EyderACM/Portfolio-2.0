@@ -6,7 +6,8 @@ import { MainHero } from '../Components/molecules/MainHero';
 import { gsap } from "gsap/dist/gsap"
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 
-const Main = () => {
+const Main = () => {		
+		gsap.registerPlugin(CSSRulePlugin);
 
     return (
         <Container>
@@ -17,9 +18,6 @@ const Main = () => {
 						<Navbar />
 						<MainHero />
 					</ContentWrapper>
-					<script>
-						gsap.registerRule(CSSRulePlugin);
-					</script>
         </Container>
     );
 }
