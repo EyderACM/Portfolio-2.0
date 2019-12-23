@@ -22,17 +22,24 @@ import { SocialBlob } from '../atoms/SocialBlob';
 
 export const MainHero = () => {
     const [word, setWord] = useState('');
+    let homeScreen: any = useRef(null);
     let blueBlobElement: any = useRef(null);
     let redBlobElement: any = useRef(null);
     let orangeBlobElement: any = useRef(null);
     let titleText: any = useRef(null);
     let writterText: any = useRef(null);
-
+    let linkedInBlob: any = useRef(null);
+    let githubBlob: any = useRef(null);
+    let twitterBlob: any = useRef(null);
+    
     const animateOnStartup = () => {        
       const tl = new TimelineMax({});            
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
       tl.to(orangeBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeInOut}, "-=.7");
+      tl.from(linkedInBlob, .8, {y: 600, ease: Circ.easeOut});
+      tl.from(githubBlob, .8, {y: 600, ease: Circ.easeOut}, "-=.3");
+      tl.from(twitterBlob, .8, {y: 600, ease: Circ.easeOut}, "-=.4");
       tl.from(titleText, .8, { opacity: 0, ease: Power3.easeInOut, y:20});
       tl.from(writterText, .8, { opacity: 0, ease: Circ.easeOut}, "-=.2");
     }
@@ -76,22 +83,23 @@ export const MainHero = () => {
   
     return (
       <Container>
-        <BlueBlobImage ref={elem => {blueBlobElement = elem}} src={blueBlob}/>
-        <RedBlobImage ref={elem => {redBlobElement = elem}} src={redBlob}/>
-        <OrangeBlobImage ref={elem => {orangeBlobElement = elem}} src={orangeBlob}/>
-        <MainHeroWrapper>
-          <SplashText ref={elem => {titleText = elem}}>I'm Eyder</SplashText>
-          <DescriptionText ref={elem => {writterText = elem}}>a&nbsp;{word}</DescriptionText>
-          <SociallogosContainer>
-              <SocialBlob src="../../static/images/linkedInBlob.svg"/>
-
-            <a href="https://github.com/EyderACM">
-              <SocialBlob src="../../static/images/githubBlob.svg"/>
-            </a>
-            <a href="https://github.com/EyderACM">
-              <SocialBlob src="../../static/images/twitterInBlob.svg"/>
-            </a>
-          </SociallogosContainer>
+        <MainHeroWrapper ref={elem => {homeScreen = elem}}>
+          <BlueBlobImage ref={elem => {blueBlobElement = elem}} src={blueBlob}/>
+          <RedBlobImage ref={elem => {redBlobElement = elem}} src={redBlob}/>
+          <OrangeBlobImage ref={elem => {orangeBlobElement = elem}} src={orangeBlob}/>
+            <SplashText ref={elem => {titleText = elem}}>I'm Eyder</SplashText>
+            <DescriptionText ref={elem => {writterText = elem}}>a&nbsp;{word}</DescriptionText>
+            <SociallogosContainer>
+              <a ref={elem => {linkedInBlob = elem}} href="https://www.linkedin.com/in/eyderacm/">
+                <SocialBlob src="../../static/images/linkedInBlob.svg"/>
+              </a>
+              <a ref={elem => {githubBlob = elem}} href="https://github.com/EyderACM">
+                <SocialBlob src="../../static/images/githubBlob.svg"/>
+              </a>
+              <a ref= {elem => {twitterBlob = elem}} href="https://github.com/EyderACM">
+                <SocialBlob src="../../static/images/twitterInBlob.svg"/>
+              </a>
+            </SociallogosContainer>
         </MainHeroWrapper>
       </Container>
     )

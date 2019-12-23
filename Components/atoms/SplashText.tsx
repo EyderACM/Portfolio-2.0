@@ -6,10 +6,12 @@ export const SplashText = styled.h1`
     font-size: ${pixelToRem(50)};
     font-family: 'Montserrat';    
     font-weight: 500;
-    margin: 0;
-    text-align: center;
+    margin-bottom: ${pixelToRem(10)};
+    margin-top: ${pixelToRem(20)};
+    text-align: center;    
 
     @media (min-width: ${units.MIN_WIDTH_DESKTOP}){
         font-size: ${pixelToRem(75)};
+        margin-bottom: ${pixelToRem(30)};
     }
 `;
