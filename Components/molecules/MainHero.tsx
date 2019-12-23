@@ -97,7 +97,7 @@ export const MainHero = () => {
               <a ref={elem => {githubBlob = elem}} href="https://github.com/EyderACM">
                 <SocialBlob src="../../static/images/githubBlob.svg"/>
               </a>
-              <a ref= {elem => {twitterBlob = elem}} href="https://github.com/EyderACM">
+              <a ref= {elem => {twitterBlob = elem}} href="https://twitter.com/AztekWrror">
                 <SocialBlob src="../../static/images/twitterInBlob.svg"/>
               </a>
             </SociallogosContainer>
