@@ -8,8 +8,8 @@ import { RedBlobImage } from '../atoms/RedBlobImage';
 import { OrangeBlobImage } from '../atoms/OrangeBlobImage';
 import { Container } from 'next/app';
 import { pixelToRem } from '../../utils/pixelToRem';
-import { Circ, Back, TimelineMax } from 'gsap';
-import { gsap } from "gsap/dist/gsap"
+// @ts-ignore
+import { Circ, Back, TimelineMax } from 'gsap/dist/gsap';
 
 // @ts-ignore
 import blueBlob from '../../static/images/blueBlob.svg';
@@ -27,7 +27,7 @@ export const MainHero = () => {
     let writterText: any = useRef(null);
 
     const animateOnStartup = () => {        
-      const tl = new TimelineMax({});      
+      const tl = new TimelineMax({});            
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
       tl.to(orangeBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeInOut}, "-=.7");
