@@ -4,6 +4,7 @@ import { Navbar } from '../Components/molecules/Navbar';
 import { ContentWrapper } from '../Components/atoms/ContentWrapper';
 import { createGlobalStyle } from 'styled-components';
 import { MainHero } from '../Components/molecules/MainHero';
+import CSSRulePlugin from 'gsap/CSSRulePlugin';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
