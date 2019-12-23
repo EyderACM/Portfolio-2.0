@@ -9,7 +9,7 @@ import { OrangeBlobImage } from '../atoms/OrangeBlobImage';
 import { Container } from 'next/app';
 import { pixelToRem } from '../../utils/pixelToRem';
 // @ts-ignore
-import { Circ, Back, TimelineMax } from 'gsap/dist/gsap';
+import { Circ, Back, TimelineMax, Power3 } from 'gsap/dist/gsap';
 
 // @ts-ignore
 import blueBlob from '../../static/images/blueBlob.svg';
@@ -17,6 +17,8 @@ import blueBlob from '../../static/images/blueBlob.svg';
 import redBlob from '../../static/images/redBlob.svg';
 // @ts-ignore
 import orangeBlob from '../../static/images/orangeBlob.svg';
+import { SociallogosContainer } from '../atoms/SocialLogosContainer';
+import { SocialBlob } from '../atoms/SocialBlob';
 
 export const MainHero = () => {
     const [word, setWord] = useState('');
@@ -31,9 +33,8 @@ export const MainHero = () => {
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
       tl.to(orangeBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeInOut}, "-=.7");
-      tl.from(titleText, .8, { opacity: 0, ease: Circ.easeInOut});
+      tl.from(titleText, .8, { opacity: 0, ease: Power3.easeInOut, y:20});
       tl.from(writterText, .8, { opacity: 0, ease: Circ.easeOut}, "-=.2");
-      console.log('animando');
     }
 
     useEffect(() => {      
@@ -81,6 +82,16 @@ export const MainHero = () => {
         <MainHeroWrapper>
           <SplashText ref={elem => {titleText = elem}}>I'm Eyder</SplashText>
           <DescriptionText ref={elem => {writterText = elem}}>a&nbsp;{word}</DescriptionText>
+          <SociallogosContainer>
+              <SocialBlob src="../../static/images/linkedInBlob.svg"/>
+
+            <a href="https://github.com/EyderACM">
+              <SocialBlob src="../../static/images/githubBlob.svg"/>
+            </a>
+            <a href="https://github.com/EyderACM">
+              <SocialBlob src="../../static/images/twitterInBlob.svg"/>
+            </a>
+          </SociallogosContainer>
         </MainHeroWrapper>
       </Container>
     )
