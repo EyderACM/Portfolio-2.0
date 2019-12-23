@@ -12,8 +12,6 @@ const Main = () => {
 				overflow: hidden;
 			}
 		`
-
-
     return (
         <Container>
 					<head>            

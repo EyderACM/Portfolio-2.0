@@ -34,7 +34,6 @@ export const MainHero = () => {
     const tl = new TimelineMax({delay: 1});     
         
     const animateOnStartup = () => {                
-      TweenMax.to(homeScreen, 0, {css: {visibility: 'visible'}});
       tl.to(blueBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeOut});
       tl.to(redBlobElement, .8, { right: `${pixelToRem(-230)}`, ease: Back.easeOut}, "-=.5");
       tl.to(orangeBlobElement, .8, { left: `${pixelToRem(-220)}`, ease: Circ.easeInOut}, "-=.7");
@@ -45,7 +44,8 @@ export const MainHero = () => {
       tl.from(writterText, .8, { opacity: 0, ease: Circ.easeOut}, "-=.2");
     }
 
-    useEffect(() => {            
+    useEffect(() => {       
+      TweenMax.to(homeScreen, 0, {css: {visibility: 'visible'}});     
       typewriter(["SWE Student", "Book Lover", "Full-Stack Developer", "Passionate Learner"], 600);      
       animateOnStartup();
     }, [])    
