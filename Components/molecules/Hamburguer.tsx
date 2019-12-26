@@ -6,17 +6,16 @@ import { HamburguerLine, eposition } from '../atoms/HamburguerLine';
 import { HamburguerWrapper } from '../atoms/HamburguerWrapper';
 import { HamburguerLineContainer } from '../atoms/HamburguerLineContainer';
 
-export const Hamburguer = () =>{
-  const [active, setActive] = useState<boolean>(false);
+interface IHamburguer {
+  active: boolean;
+  onHamburguerClick: () => any;
+}
 
-  const onHamburguerClick = () => () => {
-    console.log('hamburguer clicked');
-    setActive(!active);
-  }
+export const Hamburguer = ({ active, onHamburguerClick }: IHamburguer) =>{
 
   return (
     <HamburguerWrapper onClick={onHamburguerClick()}>
-      <HamburguerLineContainer>
+      <HamburguerLineContainer isActive={active}>
         <HamburguerLine isActive={active} position={eposition.TOP}/>
         <HamburguerLine isActive={active} position={eposition.MIDDLE}/>
         <HamburguerLine isActive={active} position={eposition.BOTTOM}/>
