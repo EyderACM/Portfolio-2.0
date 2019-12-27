@@ -6,5 +6,5 @@ export const NavbarWrapper = styled.div`
     display: flex;
     flex-direction: row;        
     justify-content: space-between;
-    padding: ${pixelToRem(20)} ${pixelToRem(20)};    
+    padding: ${pixelToRem(20)} ${pixelToRem(20)};        
 `;
