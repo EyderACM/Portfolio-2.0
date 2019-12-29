@@ -12,7 +12,6 @@ interface IHamburguer {
 }
 
 export const Hamburguer = ({ active, onHamburguerClick }: IHamburguer) =>{
-
   return (
     <HamburguerWrapper onClick={onHamburguerClick()}>
       <HamburguerLineContainer isActive={active}>
