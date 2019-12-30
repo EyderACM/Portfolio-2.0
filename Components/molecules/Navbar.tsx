@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavbarWrapper } from '../atoms/NavbarWrapper';
 import { NavbarImage } from '../atoms/NavbarImage';
 import { Hamburguer } from './Hamburguer';
@@ -11,8 +11,15 @@ export const Navbar = () => {
 		isActive: false,
 		menuName: "Menu"
 	});
+	const [disabled, setDisabled] = useState(false);
+
+	useEffect(() => {
+		disableHamburguer()	
+	}, []);
 
   const onHamburguerClick = () => () => {
+		disableHamburguer();
+		console.log("clicked");
     if(state.initial === false){
 			setState({	
 				initial: null,			
@@ -30,13 +37,20 @@ export const Navbar = () => {
 				menuName: "Close"
 			})
 		}
-  }
+	}
+	
+	const disableHamburguer = () => {
+		setDisabled(!disabled);
+		setTimeout(() => {
+			setDisabled(false);
+		}, 920);
+	}
 
 	return (
 		<header>
 			<NavbarWrapper>
 				<NavbarImage src="/static/images/eyderImage.png" alt='holi'/>
-				<Hamburguer active={state.isActive} onHamburguerClick={onHamburguerClick}/>
+				<Hamburguer active={state.isActive} onHamburguerClick={onHamburguerClick} disabled={disabled}/>
 			</NavbarWrapper>
 			<HamburguerMenu state={{...state}}/>
 		</header>
