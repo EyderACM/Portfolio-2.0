@@ -5,4 +5,5 @@ export const NavbarImage = styled.img`
     border-radius: ${pixelToRem(50)}; 
     height: ${pixelToRem(45)}; 
     width: ${pixelToRem(45)};
+    z-index: 2;
 `;
