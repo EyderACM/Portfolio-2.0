@@ -20,8 +20,8 @@ export const HamburguerMenu = ({ state }: any) => {
   useEffect(() => {
     const hamburguerPosition = `${pixelToRem(window.innerWidth - 55)}`;
     if (state.isActive === false) {
-      TweenMax.to(hamburguerMenu, .7, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
-      gsap.to(hamburguerMenu, { duration: .7, css: { display: "none" } });
+      TweenMax.to(hamburguerMenu, 1, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
+      gsap.to(hamburguerMenu, { duration: 1, css: { display: "none" } });
     }
     else if (state.isActive === true || (state.isActive === true && state.initial === null)) {
       gsap.to(hamburguerMenu, { duration: 0, css: { display: "block" } });
