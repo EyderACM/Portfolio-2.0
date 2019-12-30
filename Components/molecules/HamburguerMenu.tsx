@@ -31,7 +31,7 @@ export const HamburguerMenu = ({ state }: any) => {
       gsap.to(hamburguerMenu, { duration: 0, css: { display: "block" } });      
       fadeInText({text1, text2, text3, text4, hamburguerPosition});
     }
-  });
+  }, [state.isActive]);
 
   const fadeInText = ({text1, text2, text3, text4, hamburguerPosition}: any) => {
     const openingTl = new TimelineMax();

@@ -8,12 +8,13 @@ import { HamburguerLineContainer } from '../atoms/HamburguerLineContainer';
 
 interface IHamburguer {
   active: boolean;
+  disabled: boolean;
   onHamburguerClick: () => any;
 }
 
-export const Hamburguer = ({ active, onHamburguerClick }: IHamburguer) =>{
+export const Hamburguer = ({ active, onHamburguerClick, disabled }: IHamburguer) =>{
   return (
-    <HamburguerWrapper onClick={onHamburguerClick()}>
+    <HamburguerWrapper disabled={disabled} onClick={onHamburguerClick()}>
       <HamburguerLineContainer isActive={active}>
         <HamburguerLine isActive={active} position={eposition.TOP}/>
         <HamburguerLine isActive={active} position={eposition.MIDDLE}/>
