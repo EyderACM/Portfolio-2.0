@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { HamburguerMenuContainer } from '../atoms/HamburguerMenuContainer';
 import { HamburguerMenuWrapper } from '../atoms/HamburguerMenuWrapper';
 import { HamburguerMenuText } from '../atoms/HamburguerMenuText';
+import Link from 'next/link';
 // @ts-ignore
 import { TweenMax, gsap, Circ, TimelineMax } from 'gsap/dist/gsap';
 import { pixelToRem } from '../../utils/pixelToRem';
@@ -42,10 +43,18 @@ export const HamburguerMenu = ({ state }: any) => {
   return (
     <HamburguerMenuContainer ref={elem => { hamburguerMenu = elem }}>
       <HamburguerMenuWrapper>
-        <HamburguerMenuText ref={elem => { text1 = elem }}>Home</HamburguerMenuText>
-        <HamburguerMenuText ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>
-        <HamburguerMenuText ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>
-        <HamburguerMenuText ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>
+        <Link href="/">
+          <HamburguerMenuText ref={elem => { text1 = elem }}>Home</HamburguerMenuText>
+        </Link>
+        <Link href="/about" as="/about-me">
+          <HamburguerMenuText ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>
+        </Link>
+        <Link href="/skills" as="/skills">
+          <HamburguerMenuText ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>
+        </Link>
+        <Link href="/projects" as="/projects">
+          <HamburguerMenuText ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>
+        </Link>
       </HamburguerMenuWrapper>
     </HamburguerMenuContainer>
   )

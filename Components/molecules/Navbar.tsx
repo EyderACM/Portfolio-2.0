@@ -48,7 +48,7 @@ export const Navbar = () => {
 	return (
 		<header>
 			<NavbarWrapper>
-				<NavbarImage src="/static/images/eyderImage.png" alt='holi'/>
+				<NavbarImage src="/static/images/eyderImage.png"/>
 				<Hamburguer active={state.isActive} onHamburguerClick={onHamburguerClick} disabled={disabled}/>
 			</NavbarWrapper>
 			<HamburguerMenu state={{...state}}/>
