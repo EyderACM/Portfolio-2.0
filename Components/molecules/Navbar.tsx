@@ -19,7 +19,6 @@ export const Navbar = () => {
 
   const onHamburguerClick = () => () => {
 		disableHamburguer();
-		console.log("clicked");
     if(state.initial === false){
 			setState({	
 				initial: null,			

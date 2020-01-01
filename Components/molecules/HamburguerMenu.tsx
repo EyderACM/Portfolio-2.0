@@ -3,7 +3,7 @@ import { HamburguerMenuContainer } from '../atoms/HamburguerMenuContainer';
 import { HamburguerMenuWrapper } from '../atoms/HamburguerMenuWrapper';
 import { HamburguerMenuText } from '../atoms/HamburguerMenuText';
 // @ts-ignore
-import { TweenMax, gsap, Circ, TimelineMax, Power3 } from 'gsap/dist/gsap';
+import { TweenMax, gsap, Circ, TimelineMax } from 'gsap/dist/gsap';
 import { pixelToRem } from '../../utils/pixelToRem';
 // @ts-ignore
 
