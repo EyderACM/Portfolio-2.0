@@ -1,11 +1,11 @@
 import React from 'react'
-import { Layout } from '../Components/Layouts/Layout'
+import { Container } from 'next/app'
 
 const Skills = () => {
   return (
-    <Layout>
+    <Container>
       <h1>Skills</h1>
-    </Layout>
+    </Container>
   )
 }
 

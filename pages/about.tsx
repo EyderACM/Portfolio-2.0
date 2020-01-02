@@ -1,11 +1,11 @@
 import React from 'react'
-import { Layout } from '../Components/Layouts/Layout';
+import { Container } from 'next/app';
 
 const About = () => {
   return (
-    <Layout>
+    <Container>
       <h2>Holi</h2>
-    </Layout>
+    </Container>
   )
 }
 

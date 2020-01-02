@@ -18,16 +18,14 @@ const Main = () => {
 			font-weight: 300;
 			font-size: 12px;
 			text-align: center;			
-		`;
+		`;		
 
     return (
         <Container>			
 					<GlobalStyle />
-					<ContentWrapper>					
-						<Layout>
+					<ContentWrapper>											
 							<MainHero />			
-							<ProofText>This NextJs site was built with ❤ by Eyder A. Concha</ProofText>
-						</Layout>
+							<ProofText>This NextJs site was built with ❤ by Eyder A. Concha</ProofText>						
 					</ContentWrapper>
         </Container>
     );
