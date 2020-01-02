@@ -19,7 +19,6 @@ export const Navbar = () => {
 
   const onHamburguerClick = () => () => {
 		disableHamburguer();
-		console.log("clicked");
     if(state.initial === false){
 			setState({	
 				initial: null,			
@@ -49,10 +48,10 @@ export const Navbar = () => {
 	return (
 		<header>
 			<NavbarWrapper>
-				<NavbarImage src="/static/images/eyderImage.png" alt='holi'/>
+				<NavbarImage src="/static/images/eyderImage.png"/>
 				<Hamburguer active={state.isActive} onHamburguerClick={onHamburguerClick} disabled={disabled}/>
 			</NavbarWrapper>
-			<HamburguerMenu state={{...state}}/>
+			<HamburguerMenu state={{...state, setState}}/>
 		</header>
 	)
 }

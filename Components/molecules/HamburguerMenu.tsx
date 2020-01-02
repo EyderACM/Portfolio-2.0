@@ -2,8 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import { HamburguerMenuContainer } from '../atoms/HamburguerMenuContainer';
 import { HamburguerMenuWrapper } from '../atoms/HamburguerMenuWrapper';
 import { HamburguerMenuText } from '../atoms/HamburguerMenuText';
+import Link from 'next/link';
+import Router from 'next/router';
 // @ts-ignore
-import { TweenMax, gsap, Circ, TimelineMax, Power3 } from 'gsap/dist/gsap';
+import { TweenMax, gsap, Circ, TimelineMax } from 'gsap/dist/gsap';
 import { pixelToRem } from '../../utils/pixelToRem';
 // @ts-ignore
 
@@ -22,9 +24,9 @@ export const HamburguerMenu = ({ state }: any) => {
   let text4: any = useRef(null);
 
   useEffect(() => {
-    const hamburguerPosition = `${pixelToRem(window.innerWidth - 55)}`;
-    if (state.isActive === false) {
-      TweenMax.to(hamburguerMenu, 1, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
+    const hamburguerPosition = generatePageWidth();
+    if (state.isActive === false) {      
+      closeMenu(hamburguerPosition);
       gsap.to(hamburguerMenu, { duration: 1, css: { display: "none" } });
     }
     else if (state.isActive === true || (state.isActive === true && state.initial === null)) {      
@@ -39,13 +41,27 @@ export const HamburguerMenu = ({ state }: any) => {
     openingTl.from([text4, text3, text2, text1], {duration: 0.085, y: 30, opacity: 0, skewY: 2, ease: Circ.easeInOut, stagger: {amount: 0.3}}, "-=.4");
   }
 
+  const closeMenu = (hamburguerPosition: string) => {
+    TweenMax.to(hamburguerMenu, 1, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
+  }
+
+  const generatePageWidth = () => {
+    return `${pixelToRem(window.innerWidth - 55)}`;
+  }
+
+  const changeRoute = (routeChange: string) => () => {
+    //closeMenu(generatePageWidth());
+    state.setState({isActive: !state.isActive})
+    Router.push({pathname: routeChange});
+  }
+
   return (
     <HamburguerMenuContainer ref={elem => { hamburguerMenu = elem }}>
-      <HamburguerMenuWrapper>
-        <HamburguerMenuText ref={elem => { text1 = elem }}>Home</HamburguerMenuText>
-        <HamburguerMenuText ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>
-        <HamburguerMenuText ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>
-        <HamburguerMenuText ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>
+      <HamburguerMenuWrapper>        
+        <HamburguerMenuText onClick={changeRoute("/")} ref={elem => { text1 = elem }}>Home</HamburguerMenuText>                
+        <HamburguerMenuText onClick={changeRoute("/about")} ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>                
+        <HamburguerMenuText onClick={changeRoute("/skills")} ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>                
+        <HamburguerMenuText onClick={changeRoute("/projects")} ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>        
       </HamburguerMenuWrapper>
     </HamburguerMenuContainer>
   )
