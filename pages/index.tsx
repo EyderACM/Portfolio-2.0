@@ -17,7 +17,13 @@ const Main = () => {
 			font-family: Montserrat;			
 			font-weight: 300;
 			font-size: 12px;
-			text-align: center;			
+			text-align: center;		
+			bottom: 10%;	
+			position: absolute;
+			bottom: 0;
+			margin-bottom: 20px;
+			left: 25%;
+			right: 25%;
 		`;		
 
     return (
@@ -25,7 +31,7 @@ const Main = () => {
 					<GlobalStyle />
 					<ContentWrapper>											
 							<MainHero />			
-							<ProofText>This NextJs site was built with ❤ by Eyder A. Concha</ProofText>						
+							<ProofText>This work-in-progress NextJs site is being built with ❤ by Eyder A. Concha</ProofText>						
 					</ContentWrapper>
         </Container>
     );
