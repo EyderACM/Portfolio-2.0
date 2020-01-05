@@ -7,7 +7,7 @@ import Router from 'next/router';
 // @ts-ignore
 import { TweenMax, gsap, Circ, TimelineMax } from 'gsap/dist/gsap';
 import { pixelToRem } from '../../utils/pixelToRem';
-
+import * as UNITS from '../../utils/units';
 
 export interface IHamburguerMenu {
   menuName?: string;
@@ -42,8 +42,9 @@ export const HamburguerMenu = ({ state }: any) => {
     openingTl.from([text4, text3, text2, text1], {duration: 0.085, y: 30, opacity: 0, skewY: 2, ease: Circ.easeInOut, stagger: {amount: 0.3}}, "-=.4");
   }
 
-  const closeMenu = (hamburguerPosition: string) => {
+  const closeMenu = (hamburguerPosition: string) => {    
     TweenMax.to(hamburguerMenu, 1, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
+    handleImageReturn();
   }
 
   const generatePageWidth = () => {
@@ -57,7 +58,7 @@ export const HamburguerMenu = ({ state }: any) => {
   }  
 
   const handleImgFadeIn = (imgUrl: string) => () => {
-    if(state.isActive === true){
+    if(state.isActive === true || generatePageWidth() > UNITS.MIN_TABLET_WIDTH){
       gsap.to(imgBackground, {
         duration: 0,
         background: `url(${imgUrl}) center center`,
