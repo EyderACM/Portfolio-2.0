@@ -58,7 +58,7 @@ export const HamburguerMenu = ({ state }: any) => {
   }  
 
   const handleImgFadeIn = (imgUrl: string) => () => {
-    if(state.isActive === true || generatePageWidth() > UNITS.MIN_TABLET_WIDTH){
+    if(state.isActive === true || generatePageWidth() > UNITS.MIN_TABLET_WIDTH){      
       gsap.to(imgBackground, {
         duration: 0,
         background: `url(${imgUrl}) center center`,
