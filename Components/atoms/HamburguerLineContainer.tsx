@@ -13,6 +13,6 @@ export const HamburguerLineContainer = styled.div<IHamburguerLineContainer>`
   margin-bottom: ${props => props.isActive ? pixelToRem(2.5) : '0'};
   margin-top: ${pixelToRem(3.5)};
   margin-right: ${props => props.isActive ? pixelToRem(.6) : '0'};
-  position: fixed;
+  position: absolute;
   transition: .1s;
 `
