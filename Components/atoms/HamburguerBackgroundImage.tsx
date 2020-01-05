@@ -10,6 +10,7 @@ export const HamburguerBackgroundImage = styled.img`
     animation: cameraPan 30s infinite;
     background-size: cover;
     background-repeat: no-repeat;
+    display: block;
     height: 100vh;
     opacity: 0;
     position: absolute;
