@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react'
 import { HamburguerMenuContainer } from '../atoms/HamburguerMenuContainer';
 import { HamburguerMenuWrapper } from '../atoms/HamburguerMenuWrapper';
 import { HamburguerMenuText } from '../atoms/HamburguerMenuText';
-import Link from 'next/link';
+import { HamburguerBackgroundImage } from '../atoms/HamburguerBackgroundImage';
 import Router from 'next/router';
 // @ts-ignore
 import { TweenMax, gsap, Circ, TimelineMax } from 'gsap/dist/gsap';
 import { pixelToRem } from '../../utils/pixelToRem';
-// @ts-ignore
+
 
 export interface IHamburguerMenu {
   menuName?: string;
@@ -22,6 +22,7 @@ export const HamburguerMenu = ({ state }: any) => {
   let text2: any = useRef(null);
   let text3: any = useRef(null);
   let text4: any = useRef(null);
+  let imgBackground: any = useRef(null);
 
   useEffect(() => {
     const hamburguerPosition = generatePageWidth();
@@ -53,16 +54,42 @@ export const HamburguerMenu = ({ state }: any) => {
     //closeMenu(generatePageWidth());
     state.setState({isActive: !state.isActive})
     Router.push({pathname: routeChange});
+  }  
+
+  const handleImgFadeIn = (imgUrl: string) => () => {
+    if(state.isActive === true){
+      gsap.to(imgBackground, {
+        duration: 0,
+        background: `url(${imgUrl}) center center`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat"
+      });
+      gsap.to(imgBackground, {
+        duration: 0.4,
+        opacity: 1,
+        ease: "power3.inOut"
+      })
+    }
+  }
+
+  const handleImageReturn = () => () => {
+    gsap.to(imgBackground, {
+      duration: .4,
+      opacity: 0
+    });
   }
 
   return (
-    <HamburguerMenuContainer ref={elem => { hamburguerMenu = elem }}>
-      <HamburguerMenuWrapper>        
-        <HamburguerMenuText onClick={changeRoute("/")} ref={elem => { text1 = elem }}>Home</HamburguerMenuText>                
-        <HamburguerMenuText onClick={changeRoute("/about")} ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>                
-        <HamburguerMenuText onClick={changeRoute("/skills")} ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>                
-        <HamburguerMenuText onClick={changeRoute("/projects")} ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>        
-      </HamburguerMenuWrapper>
-    </HamburguerMenuContainer>
+    <div>
+      <HamburguerBackgroundImage ref={elem => {imgBackground = elem}}/>
+      <HamburguerMenuContainer ref={elem => { hamburguerMenu = elem }}>
+        <HamburguerMenuWrapper>  
+          <HamburguerMenuText onMouseLeave={handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/hackmty.jpg")} onClick={changeRoute("/")} ref={elem => { text1 = elem }}>Home</HamburguerMenuText>                
+          <HamburguerMenuText onMouseLeave={handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/hacksuresteImg.jpg")} onClick={changeRoute("/about")} ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>                
+          <HamburguerMenuText onMouseLeave={handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/kayAppImg.jpg")} onClick={changeRoute("/skills")} ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>                
+          <HamburguerMenuText onMouseLeave={handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/mexihcVolunteer.jpg")} onClick={changeRoute("/projects")} ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>        
+        </HamburguerMenuWrapper>
+      </HamburguerMenuContainer>
+    </div>
   )
 }
