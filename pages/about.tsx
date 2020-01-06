@@ -30,10 +30,11 @@ const About = () => {
     tl.from([p3, p4], {duration: .3, opacity: 0, y: -10, ease: Power3.inOut});     
   });
 
-  const GlobalStyle = createGlobalStyle`
-  body{
-    overflow-x: hidden;
-  }	
+  const GlobalStyle = createGlobalStyle`  
+  html {
+    overflow-x: hidden;  
+    margin-right: calc(-1 * (100vw - 100%));
+  }
 `
 
   return (
