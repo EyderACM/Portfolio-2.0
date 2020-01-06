@@ -39,10 +39,10 @@ export const Navbar = () => {
 	}
 	
 	const disableHamburguer = () => {
-		setDisabled(!disabled);
+		setDisabled(true);
 		setTimeout(() => {
 			setDisabled(false);
-		}, 920);
+		}, 2275);
 	}
 
 	return (
