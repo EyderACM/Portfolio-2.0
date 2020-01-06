@@ -43,7 +43,7 @@ const About = () => {
       <AboutBlueBlob ref={elem => {blueBlob = elem}} src={blueBlobImg}/>
       <AboutHeader ref={elem => {aboutmeText = elem}} >About Me</AboutHeader> 
       <AboutDescription ref={elem => {p1 = elem}}>
-        Hi, my name <AboutTextHighlight>Eyder</AboutTextHighlight>, a 19 year old Software Engineering student and Full-Stack Developer
+        Hi, my name is <AboutTextHighlight>Eyder</AboutTextHighlight>, a 19 year old Software Engineering student and Full-Stack Developer
         that enjoys reading books, sharing and working hard.                
       </AboutDescription>
       <br/>            
