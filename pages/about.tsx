@@ -30,10 +30,11 @@ const About = () => {
     tl.from([p3, p4], {duration: .3, opacity: 0, y: -10, ease: Power3.inOut});     
   });
 
-  const GlobalStyle = createGlobalStyle`
-  body{
-    overflow-x: hidden;
-  }	
+  const GlobalStyle = createGlobalStyle`  
+  html {
+    overflow-x: hidden;  
+    margin-right: calc(-1 * (100vw - 100%));
+  }
 `
 
   return (
@@ -43,7 +44,7 @@ const About = () => {
       <AboutBlueBlob ref={elem => {blueBlob = elem}} src={blueBlobImg}/>
       <AboutHeader ref={elem => {aboutmeText = elem}} >About Me</AboutHeader> 
       <AboutDescription ref={elem => {p1 = elem}}>
-        Hi, my name <AboutTextHighlight>Eyder</AboutTextHighlight>, a 19 year old Software Engineering student and Full-Stack Developer
+        Hi, my name is <AboutTextHighlight>Eyder</AboutTextHighlight>, a 19 year old Software Engineering student and Full-Stack Developer
         that enjoys reading books, sharing and working hard.                
       </AboutDescription>
       <br/>            
