@@ -1,11 +1,16 @@
 import React from 'react'
-import { Container } from 'next/app'
+import { AboutmeWrapper } from '../Components/atoms/AboutmeWrapper'
+import { ProjectsSectionTitle } from '../Components/atoms/ProjectsSectionTitle'
+import { Project } from '../Components/molecules/Project';
 
 const Projects = () => {
   return (
-    <Container>
-      <h2>My projects</h2>
-    </Container>
+    <AboutmeWrapper>
+      <ProjectsSectionTitle>Projects</ProjectsSectionTitle>
+      <div>
+        <Project></Project>
+      </div>
+    </AboutmeWrapper>
   )
 }
 
