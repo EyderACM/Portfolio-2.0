@@ -2,15 +2,18 @@ import styled from 'styled-components';
 import { pixelToRem } from '../../utils/pixelToRem';
 import * as UNITS from '../../utils/units';
 
+export interface IHamburguerBackgroundImage {
+  isActive: boolean;
+}
 
-export const HamburguerBackgroundImage = styled.img`
+export const HamburguerBackgroundImage = styled.img<IHamburguerBackgroundImage>(({isActive}) => `
   display: none;
 
   @media (min-width: ${UNITS.MIN_TABLET_WIDTH}){
     animation: cameraPan 30s infinite;
     background-size: cover;
     background-repeat: no-repeat;
-    display: block;
+    display: ${isActive ? "block" : "none"};
     height: 100vh;
     opacity: 0;
     position: absolute;
@@ -33,4 +36,4 @@ export const HamburguerBackgroundImage = styled.img`
       background-position-x: -40%;
     }
   }
-`;
+`);

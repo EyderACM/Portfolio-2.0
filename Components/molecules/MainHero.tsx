@@ -82,26 +82,24 @@ export const MainHero = () => {
       setTimeout(() => type({wordIndex, words, isDeleting, txt, wait}), typeSpeed);
     }
   
-    return (
-      <Container>
-        <MainHeroWrapper ref={elem => {homeScreen = elem}}>
-          <BlueBlobImage ref={elem => {blueBlobElement = elem}} src={blueBlob}/>
-          <RedBlobImage ref={elem => {redBlobElement = elem}} src={redBlob}/>
-          <OrangeBlobImage ref={elem => {orangeBlobElement = elem}} src={orangeBlob}/>
-            <SplashText ref={elem => {titleText = elem}}>I'm Eyder</SplashText>
-            <DescriptionText ref={elem => {writterText = elem}}>a&nbsp;{word}</DescriptionText>
-            <SociallogosContainer>
-              <a ref={elem => {linkedInBlob = elem}} href="https://www.linkedin.com/in/eyderacm/">
-                <SocialBlob src="../../static/images/linkedInBlob.svg"/>
-              </a>
-              <a ref={elem => {githubBlob = elem}} href="https://github.com/EyderACM">
-                <SocialBlob src="../../static/images/githubBlob.svg"/>
-              </a>
-              <a ref= {elem => {twitterBlob = elem}} href="https://twitter.com/AztekWrror">
-                <SocialBlob src="../../static/images/twitterInBlob.svg"/>
-              </a>
-            </SociallogosContainer>
-        </MainHeroWrapper>
-      </Container>
+    return (      
+      <MainHeroWrapper ref={elem => {homeScreen = elem}}>
+        <BlueBlobImage ref={elem => {blueBlobElement = elem}} src={blueBlob}/>
+        <RedBlobImage ref={elem => {redBlobElement = elem}} src={redBlob}/>
+        <OrangeBlobImage ref={elem => {orangeBlobElement = elem}} src={orangeBlob}/>
+          <SplashText ref={elem => {titleText = elem}}>I'm Eyder</SplashText>
+          <DescriptionText ref={elem => {writterText = elem}}>a&nbsp;{word}</DescriptionText>
+          <SociallogosContainer>
+            <a ref={elem => {linkedInBlob = elem}} href="https://www.linkedin.com/in/eyderacm/">
+              <SocialBlob src="../../static/images/linkedInBlob.svg"/>
+            </a>
+            <a ref={elem => {githubBlob = elem}} href="https://github.com/EyderACM">
+              <SocialBlob src="../../static/images/githubBlob.svg"/>
+            </a>
+            <a ref= {elem => {twitterBlob = elem}} href="https://twitter.com/AztekWrror">
+              <SocialBlob src="../../static/images/twitterInBlob.svg"/>
+            </a>
+          </SociallogosContainer>
+      </MainHeroWrapper>      
     )
 }

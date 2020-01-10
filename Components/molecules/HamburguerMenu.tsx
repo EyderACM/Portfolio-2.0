@@ -84,7 +84,7 @@ export const HamburguerMenu = ({ state }: any) => {
 
   return (
     <div>
-      <HamburguerBackgroundImage ref={elem => {imgBackground = elem}}/>
+      <HamburguerBackgroundImage isActive={state.isActive} ref={elem => {imgBackground = elem}}/>
       <HamburguerMenuContainer ref={elem => { hamburguerMenu = elem }}>
         <HamburguerMenuWrapper>  
           <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/hackmty.jpg")} onClick={changeRoute("/")} ref={elem => { text1 = elem }}>Home</HamburguerMenuText>                
