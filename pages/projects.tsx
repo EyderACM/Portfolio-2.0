@@ -1,9 +1,7 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useLayoutEffect } from 'react'
 import { AboutmeWrapper } from '../Components/atoms/AboutmeWrapper'
 import { ProjectsSectionTitle } from '../Components/atoms/ProjectsSectionTitle'
 import { Project } from '../Components/molecules/Project';
-import { AboutRedBlob } from '../Components/atoms/AboutRedBlob';
-import { AboutBlueBlob } from '../Components/atoms/AboutBlueBlob';
 import { pixelToRem } from '../utils/pixelToRem';
 import { createGlobalStyle } from 'styled-components';
 
@@ -18,7 +16,7 @@ import linkedon from '../static/images/projects/linkedOn.svg';
 // @ts-ignore
 import baseConverter from '../static/images/projects/calculator.svg';
 // @ts-ignore
-import { Circ, TimelineMax, Power3 } from 'gsap/dist/gsap';
+import { Circ, TimelineMax, Power3, gsap } from 'gsap/dist/gsap';
 // @ts-ignore
 import redBlobImg from '../static/images/redBlob.svg';
 // @ts-ignore
@@ -26,8 +24,12 @@ import blueBlobImg from '../static/images/blueBlob.svg';
 
 const Projects = () => {
 
+  // To change blobs to different ones
   let redBlob: any = useRef(null);
   let blueBlob: any = useRef(null);
+
+  const elref: any = useRef([]);
+
   const tl = new TimelineMax({delay: 1}); 
   const GlobalStyle = createGlobalStyle`  
   html {
@@ -38,8 +40,17 @@ const Projects = () => {
 
   useEffect(() => {
     tl.to(redBlob, .8, { left: `${pixelToRem(-250)}`, ease: Circ.easeOut});
-    tl.to(blueBlob, .8, { right: `${pixelToRem(-270)}`, ease: Circ.easeOut}, "-=.5");
-  });
+    tl.to(blueBlob, .8, { right: `${pixelToRem(-270)}`, ease: Circ.easeOut}, "-=.5");    
+  }, []);  
+
+  useLayoutEffect(() => {
+    if(elref.current){
+      elref.current.map((element: any) => {
+        tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeOut}, "-=.5");
+      });      
+      return;
+    }
+  })
 
   const projects = [
   {
@@ -75,19 +86,15 @@ const Projects = () => {
     A social-media that provides students in your area a place to share their learning and growth in their career.`,
     projectImage: linkedon
   }   
-]
-
-  const elref: any = useRef([]);
+]  
 
   return (
     <AboutmeWrapper>
       <GlobalStyle />
-      <AboutRedBlob ref={elem => {redBlob = elem}} src={redBlobImg} />
-      <AboutBlueBlob ref={elem => {blueBlob = elem}} src={blueBlobImg}/>
       <ProjectsSectionTitle>Projects</ProjectsSectionTitle>
       <div>
-        {projects.map((singleProject, index) => {
-          return <Project ref={(el: any) => {elref.current[index] = el}} projectTitle={singleProject.projectTitle} projectDescription={singleProject.projectDescription} projectImage={singleProject.projectImage}/>
+        {projects.map((singleProject, index) => {          
+          return <div ref={(el: any) => {elref.current[index] = el}}><Project projectTitle={singleProject.projectTitle} projectDescription={singleProject.projectDescription} projectImage={singleProject.projectImage}/></div>
         })}
       </div>
     </AboutmeWrapper>

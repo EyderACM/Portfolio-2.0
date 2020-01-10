@@ -8,7 +8,7 @@ import { ProjectDescription } from '../atoms/ProjectDescription';
 interface IProject {
   projectTitle: string;
   projectDescription: string;
-  projectImage: any;
+  projectImage: any;  
 }
 
 export const Project = ({projectTitle, projectDescription, projectImage}: any) => {
