@@ -16,7 +16,7 @@ import linkedon from '../static/images/projects/linkedOn.svg';
 // @ts-ignore
 import baseConverter from '../static/images/projects/calculator.svg';
 // @ts-ignore
-import { Circ, TimelineMax } from 'gsap/dist/gsap';
+import { Circ, TimelineMax, TweenMax } from 'gsap/dist/gsap';
 // @ts-ignore
 import blueBlobImg from '../static/images/blueBlob.svg';
 // @ts-ignore
@@ -43,12 +43,12 @@ const Projects = () => {
   `   
 
   useEffect(() => {
-    tl.to(blueBlob, .8, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});    
-    tl.to(orangeBlob, .8, { right: `${pixelToRem(-250)}`, ease: Circ.easeOut});    
-    tl.to(redBlob, .8, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});  
+    tl.to(blueBlob, .6, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});    
+    tl.to(orangeBlob, .6, { right: `${pixelToRem(-250)}`, ease: Circ.easeOut});    
+    tl.to(redBlob, .6, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});  
   }, []);  
 
-  useLayoutEffect(() => {
+  useLayoutEffect(() => {        
     if(elref.current){
       elref.current.map((element: any) => {
         tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeOut}, "-=.4");
@@ -102,7 +102,7 @@ const Projects = () => {
       <ProjectsSectionTitle>Projects</ProjectsSectionTitle>
       <div>
         {projects.map((singleProject, index) => {          
-          return <div ref={(el: any) => {elref.current[index] = el}}><Project projectTitle={singleProject.projectTitle} projectDescription={singleProject.projectDescription} projectImage={singleProject.projectImage}/></div>
+          return <div className="project" ref={(el: any) => {elref.current[index] = el}}><Project projectTitle={singleProject.projectTitle} projectDescription={singleProject.projectDescription} projectImage={singleProject.projectImage}/></div>
         })}
       </div>
     </AboutmeWrapper>
