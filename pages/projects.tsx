@@ -16,18 +16,22 @@ import linkedon from '../static/images/projects/linkedOn.svg';
 // @ts-ignore
 import baseConverter from '../static/images/projects/calculator.svg';
 // @ts-ignore
-import { Circ, TimelineMax, Power3, gsap } from 'gsap/dist/gsap';
-// @ts-ignore
-import redBlobImg from '../static/images/redBlob.svg';
+import { Circ, TimelineMax } from 'gsap/dist/gsap';
 // @ts-ignore
 import blueBlobImg from '../static/images/blueBlob.svg';
+// @ts-ignore
+import orangeBlobImg from '../static/images/orangeBlob.svg';
+// @ts-ignore
+import redBlobImg from '../static/images/redBlob.svg';
+
+import { ProjectBlob } from '../Components/atoms/ProjectBlob';
 
 const Projects = () => {
 
   // To change blobs to different ones
-  let redBlob: any = useRef(null);
   let blueBlob: any = useRef(null);
-
+  let orangeBlob: any = useRef(null);
+  let redBlob: any = useRef(null);
   const elref: any = useRef([]);
 
   const tl = new TimelineMax({delay: 1}); 
@@ -39,31 +43,33 @@ const Projects = () => {
   `   
 
   useEffect(() => {
-    tl.to(redBlob, .8, { left: `${pixelToRem(-250)}`, ease: Circ.easeOut});
-    tl.to(blueBlob, .8, { right: `${pixelToRem(-270)}`, ease: Circ.easeOut}, "-=.5");    
+    tl.to(blueBlob, .8, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});    
+    tl.to(orangeBlob, .8, { right: `${pixelToRem(-250)}`, ease: Circ.easeOut});    
+    tl.to(redBlob, .8, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});  
   }, []);  
 
   useLayoutEffect(() => {
     if(elref.current){
       elref.current.map((element: any) => {
-        tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeOut}, "-=.5");
-      });      
+        tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeOut}, "-=.4");
+      });
       return;
     }
   })
 
   const projects = [
   {
+    projectTitle: "Bepensa World",
+    projectDescription: `This project was developed using Flutter for the hackathon "Hacksureste", it
+    determines which convenience stores are potential clients within certain range, calculated
+    with both a national and business database.
+    This way simplifying the process of looking for clients to a national beverages chain.`,
+    projectImage: bepensaWorld
+  },
+  {
     projectTitle: "Base Converter",
     projectDescription: `A React-Native app made using styled-components. It converts any base16 to another base16 number providing a quick transforming tool for students' use.`,
     projectImage: baseConverter
-  },
-  {
-    projectTitle: "Frugalist",
-    projectDescription: `This application determines the price of a certain object in different supermarkets in Mexico, 
-    it was developed with Flutter, and it implements a web scraper made with NodeJs, and an image 
-    classifier with tensorflowJs to detect a product by its photo and determine its price.`,
-    projectImage: frugalist
   },
   {
     projectTitle: "Kayapp",
@@ -73,13 +79,12 @@ const Projects = () => {
     projectImage: kayapp
   },
   {
-    projectTitle: "Bepensa World",
-    projectDescription: `This project was developed using Flutter for the hackathon "Hacksureste", it
-    determines which convenience stores are potential clients within certain range, calculated
-    with both a national and business database.
-    This way simplifying the process of looking for clients to a national beverages chain.`,
-    projectImage: bepensaWorld
-  },
+    projectTitle: "Frugalist",
+    projectDescription: `This application determines the price of a certain object in different supermarkets in Mexico, 
+    it was developed with Flutter, and it implements a web scraper made with NodeJs, and an image 
+    classifier with tensorflowJs to detect a product by its photo and determine its price.`,
+    projectImage: frugalist
+  },  
   {
     projectTitle: "LinkedOn",
     projectDescription: `An under construction Full-Stack React made webapp that uses Mongodb, Nodejs, Typescript, Redux and Styled-Components. 
@@ -91,6 +96,9 @@ const Projects = () => {
   return (
     <AboutmeWrapper>
       <GlobalStyle />
+      <ProjectBlob ref={el => {blueBlob = el}} src={blueBlobImg} width={550} top={-60} left={-450}/>
+      <ProjectBlob ref={el => {orangeBlob = el}} src={orangeBlobImg} width={400} top={620} right={-400}/>
+      <ProjectBlob ref={el => {redBlob = el}} src={redBlobImg} width={500} top={1700} left={-500}/>
       <ProjectsSectionTitle>Projects</ProjectsSectionTitle>
       <div>
         {projects.map((singleProject, index) => {          
