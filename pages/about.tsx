@@ -4,8 +4,8 @@ import { AboutHeader } from '../Components/atoms/AboutHeader';
 import { AboutDescription } from '../Components/atoms/AboutDescription';
 import { AboutTextHighlight } from '../Components/atoms/AboutTextHighlight';
 import { AboutRedBlob } from '../Components/atoms/AboutRedBlob';
-import { createGlobalStyle } from 'styled-components';
 import { AboutBlueBlob } from '../Components/atoms/AboutBlueBlob';
+import { createGlobalStyle } from 'styled-components';
 // @ts-ignore
 import { Circ, TimelineMax, Power3 } from 'gsap/dist/gsap';
 // @ts-ignore
@@ -28,7 +28,7 @@ const About = () => {
     tl.from(p1, {duration: .3, opacity: 0, y: -10, ease: Power3.inOut}); 
     tl.from(p2, {duration: .3, opacity: 0, y: -10, ease: Power3.inOut}); 
     tl.from([p3, p4], {duration: .3, opacity: 0, y: -10, ease: Power3.inOut});     
-  });
+  }, []);
 
   const GlobalStyle = createGlobalStyle`  
   html {
