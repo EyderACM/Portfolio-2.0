@@ -6,15 +6,15 @@ import { pixelToRem } from '../utils/pixelToRem';
 import { createGlobalStyle } from 'styled-components';
 
 // @ts-ignore
-import bepensaWorld from '../static/images/projects/bepensaWorld.svg';
+import bepensaWorld from '../static/images/projects/bepensaWorld.webp';
 // @ts-ignore
-import frugalist from '../static/images/projects/frugalist.svg';
+import frugalist from '../static/images/projects/frugalist.webp';
 // @ts-ignore
-import kayapp from '../static/images/projects/kayapp.svg';
+import kayapp from '../static/images/projects/kayapp.webp';
 // @ts-ignore
-import linkedon from '../static/images/projects/linkedOn.svg';
+import linkedon from '../static/images/projects/linkedOn.webp';
 // @ts-ignore
-import baseConverter from '../static/images/projects/calculator.svg';
+import baseConverter from '../static/images/projects/calculator.webp';
 // @ts-ignore
 import { Circ, TimelineMax, TweenMax } from 'gsap/dist/gsap';
 // @ts-ignore
