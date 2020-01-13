@@ -6,14 +6,11 @@ export interface IHamburguerBackgroundImage {
   isActive: boolean;
 }
 
-export const HamburguerBackgroundImage = styled.img<IHamburguerBackgroundImage>(({isActive}) => `
+export const HamburguerBackgroundImage = styled.img<IHamburguerBackgroundImage>`
   display: none;
 
   @media (min-width: ${UNITS.MIN_TABLET_WIDTH}){
-    animation: cameraPan 30s infinite;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: ${isActive ? "block" : "none"};
+    animation: cameraPan 15s infinite;    
     height: 100vh;
     opacity: 0;
     position: absolute;
@@ -25,15 +22,23 @@ export const HamburguerBackgroundImage = styled.img<IHamburguerBackgroundImage>(
 
   @keyframes cameraPan {
     0% {
-      background-position-x: -40%;
+      background-position-x: -150%;
     }    
 
+    25% {
+      background-position-x: 0%;
+    }
+
     50% {
-      background-position-x: 20%;
+      background-position-x: 100%;
+    }
+
+    75% {
+      background-position-x: 0%;
     }    
 
     100% {
-      background-position-x: -40%;
+      background-position-x: -150%;
     }
   }
-`);
+`;

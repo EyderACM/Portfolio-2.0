@@ -44,8 +44,8 @@ export const HamburguerMenu = ({ state }: any) => {
   }
 
   const closeMenu = (hamburguerPosition: string) => {    
-    TweenMax.to(hamburguerMenu, 1, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
     handleImageReturn();
+    TweenMax.to(hamburguerMenu, 1, { css: { clipPath: `circle(${pixelToRem(19)} at ${hamburguerPosition} ${pixelToRem(55)})` }, ease: Circ.easeInOut });
   }
 
   const generatePageWidth = () => {
@@ -59,27 +59,35 @@ export const HamburguerMenu = ({ state }: any) => {
     }    
   }  
 
-  const handleImgFadeIn = (imgUrl: string) => () => {    
+  const handleImgFadeIn = (imgUrl: string) => {    
     if(state.isActive === true && generatePageWidth() > UNITS.MIN_TABLET_WIDTH){      
       gsap.to(imgBackground, {
         duration: 0,
-        background: `url(${imgUrl}) center center`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat"
+        display: "block",
+        background: `url(${imgUrl}) center center`,        
       });
       gsap.to(imgBackground, {
-        duration: 0.4,
+        backgroundSize: "contain",
+        backgroundRepeat: "repeat-x",
+        duration: 0.2,
         opacity: 1,
         ease: "power3.inOut"
       })
     }
   }
 
-  const handleImageReturn = () => {    
-    gsap.to(imgBackground, {
-      duration: .4,
-      opacity: 0
-    });
+  const handleImageReturn = () => {
+    const fadeOutTimeLine = new TimelineMax();
+    fadeOutTimeLine.to(imgBackground, {      
+      duration: .2,
+      opacity: 0,      
+      ease: Circ.easeInOut,      
+    });    
+    if(state.isActive === false){
+      fadeOutTimeLine.to(imgBackground, 0, {
+        display: "none"
+      })
+    }
   }
 
   return (
@@ -87,10 +95,10 @@ export const HamburguerMenu = ({ state }: any) => {
       <HamburguerBackgroundImage isActive={state.isActive} ref={elem => {imgBackground = elem}}/>
       <HamburguerMenuContainer ref={elem => { hamburguerMenu = elem }}>
         <HamburguerMenuWrapper>  
-          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/hackmty.jpg")} onClick={changeRoute("/")} ref={elem => { text1 = elem }}>Home</HamburguerMenuText>                
-          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/hacksuresteImg.jpg")} onClick={changeRoute("/about")} ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>                
-          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/kayAppImg.jpg")} onClick={changeRoute("/skills")} ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>                
-          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={handleImgFadeIn("/static/images/mexihcVolunteer.jpg")} onClick={changeRoute("/projects")} ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>        
+          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={() => handleImgFadeIn("/static/images/hackmty.jpg")} onClick={changeRoute("/")} ref={elem => { text1 = elem }}>Home</HamburguerMenuText>                
+          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={() => handleImgFadeIn("/static/images/hacksuresteImg.jpg")} onClick={changeRoute("/about")} ref={elem => { text2 = elem }}>About Me</HamburguerMenuText>                
+          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={() => handleImgFadeIn("/static/images/kayAppImg.jpg")} onClick={changeRoute("/skills")} ref={elem => { text3 = elem }}>Skills</HamburguerMenuText>                
+          <HamburguerMenuText onMouseLeave={() => handleImageReturn()} onMouseEnter={() => handleImgFadeIn("/static/images/mexihcVolunteer.jpg")} onClick={changeRoute("/projects")} ref={elem => { text4 = elem }}>Projects</HamburguerMenuText>        
         </HamburguerMenuWrapper>
       </HamburguerMenuContainer>
     </div>

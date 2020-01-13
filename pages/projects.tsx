@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect } from 'react'
+import React, { useRef, useEffect, useLayoutEffect, lazy, Suspense } from 'react'
 import { AboutmeWrapper } from '../Components/atoms/AboutmeWrapper'
 import { ProjectsSectionTitle } from '../Components/atoms/ProjectsSectionTitle'
 import { Project } from '../Components/molecules/Project';
@@ -28,10 +28,12 @@ import { ProjectBlob } from '../Components/atoms/ProjectBlob';
 
 const Projects = () => {
 
+  // Add lazy loading  
+
   // To change blobs to different ones
   let blueBlob: any = useRef(null);
   let orangeBlob: any = useRef(null);
-  let redBlob: any = useRef(null);
+  let redBlob: any = useRef(null);  
   const elref: any = useRef([]);
 
   const tl = new TimelineMax({delay: 1}); 
@@ -46,16 +48,13 @@ const Projects = () => {
     tl.to(blueBlob, .6, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});    
     tl.to(orangeBlob, .6, { right: `${pixelToRem(-250)}`, ease: Circ.easeOut});    
     tl.to(redBlob, .6, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});  
-  }, []);  
-
-  useLayoutEffect(() => {        
     if(elref.current){
       elref.current.map((element: any) => {
         tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeOut}, "-=.4");
       });
       return;
     }
-  })
+  }, []);  
 
   const projects = [
   {
@@ -94,7 +93,7 @@ const Projects = () => {
 ]  
 
   return (
-    <AboutmeWrapper>
+    <AboutmeWrapper>      
       <GlobalStyle />
       <ProjectBlob ref={el => {blueBlob = el}} src={blueBlobImg} width={550} top={-60} left={-450}/>
       <ProjectBlob ref={el => {orangeBlob = el}} src={orangeBlobImg} width={400} top={620} right={-400}/>
