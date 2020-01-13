@@ -22,23 +22,23 @@ export const HamburguerBackgroundImage = styled.img<IHamburguerBackgroundImage>`
 
   @keyframes cameraPan {
     0% {
-      background-position-x: -150%;
+      background-position-x: 25%;
     }    
 
     25% {
-      background-position-x: 0%;
+      background-position-x: 40%;
     }
 
     50% {
-      background-position-x: 100%;
+      background-position-x: 0%;
     }
 
     75% {
-      background-position-x: 0%;
+      background-position-x: 40%;
     }    
 
     100% {
-      background-position-x: -150%;
+      background-position-x: 25%;
     }
   }
 `;
