@@ -3,6 +3,7 @@ import { NavbarWrapper } from '../atoms/NavbarWrapper';
 import { NavbarImage } from '../atoms/NavbarImage';
 import { Hamburguer } from './Hamburguer';
 import { HamburguerMenu } from './HamburguerMenu';
+import { NavbarGlobalStyle } from '../Layouts/NavbarGlobalStyle';
 
 export const Navbar = () => {
 
@@ -45,8 +46,11 @@ export const Navbar = () => {
 		}, 2275);
 	}
 
+
+
 	return (
 		<header>
+			<NavbarGlobalStyle isActive={state.isActive}/>
 			<NavbarWrapper>
 				<NavbarImage src="/static/images/eyderImage.png"/>
 				<Hamburguer active={state.isActive} onHamburguerClick={onHamburguerClick} disabled={disabled}/>

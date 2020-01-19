@@ -50,7 +50,7 @@ const Projects = () => {
     tl.to(redBlob, .6, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});  
     if(elref.current){
       elref.current.map((element: any) => {
-        tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeOut}, "-=.4");
+        tl.from(element, .7, {y: 30, opacity: 0, ease: Circ.easeInOut}, "-=.4");
       });
       return;
     }
