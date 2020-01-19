@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useLayoutEffect, lazy, Suspense } from 'react'
-import { AboutmeWrapper } from '../Components/atoms/AboutmeWrapper'
-import { ProjectsSectionTitle } from '../Components/atoms/ProjectsSectionTitle'
+import React, { useRef, useEffect, useLayoutEffect, lazy, Suspense } from 'react';
+import { AboutmeWrapper } from '../Components/atoms/AboutmeWrapper';
+import { SectionTitle } from '../Components/atoms/SectionTitle';
 import { Project } from '../Components/molecules/Project';
 import { pixelToRem } from '../utils/pixelToRem';
 import { createGlobalStyle } from 'styled-components';
@@ -98,7 +98,7 @@ const Projects = () => {
       <ProjectBlob ref={el => {blueBlob = el}} src={blueBlobImg} width={550} top={-60} left={-450}/>
       <ProjectBlob ref={el => {orangeBlob = el}} src={orangeBlobImg} width={400} top={620} right={-400}/>
       <ProjectBlob ref={el => {redBlob = el}} src={redBlobImg} width={500} top={1700} left={-500}/>
-      <ProjectsSectionTitle>Projects</ProjectsSectionTitle>
+      <SectionTitle>Projects</SectionTitle>
       <div>
         {projects.map((singleProject, index) => {          
           return <div className="project" ref={(el: any) => {elref.current[index] = el}}><Project projectTitle={singleProject.projectTitle} projectDescription={singleProject.projectDescription} projectImage={singleProject.projectImage}/></div>
