@@ -40,7 +40,10 @@ const Skills = () => {
           <SkillsList>
             <ListTitle>#Frontend</ListTitle>
             <SkillElement>Javascript</SkillElement>
+            <SkillElement>Java</SkillElement>
+            <SkillElement>Flutter</SkillElement>
             <SkillElement>ReactJs</SkillElement>
+            <SkillElement>React Native</SkillElement>
             <SkillElement>jQuery</SkillElement>
             <SkillElement>HTML </SkillElement>
             <SkillElement>(S)CSS</SkillElement>
