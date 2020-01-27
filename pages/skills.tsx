@@ -27,14 +27,14 @@ const Skills = () => {
   useEffect(() => {
     tl.to(orangeBlob, .6, { left: `${pixelToRem(-300)}`, ease: Circ.easeOut});
     tl.to(redBlob, .6, { right: `${pixelToRem(-300)}`, ease: Circ.easeOut});  
-    tl.to(blueBlob, .6, { left: `${pixelToRem(-375)}`, ease: Circ.easeOut});  
+    tl.to(blueBlob, .6, { left: `${pixelToRem(-255)}`, ease: Circ.easeOut});  
   });
 
   return (
     <AboutmeWrapper>
       <ProjectBlob ref={el => {orangeBlob = el}} src={orangeBlobImg} width={550} top={-60} left={-450}/>
       <ProjectBlob ref={el => {redBlob = el}} src={redBlobImg} width={550} top={250} right={-450}/>
-      <ProjectBlob ref={el => {blueBlob = el}} src={blueBlobImg} width={550} top={560} left={-450}/>
+      <ProjectBlob ref={el => {blueBlob = el}} src={blueBlobImg} width={400} top={560} left={-450}/>
       <SectionTitle>Skills</SectionTitle>
       <SkillBlocksWrapper>
           <SkillsList>
