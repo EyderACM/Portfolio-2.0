@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect, lazy, Suspense } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { AboutmeWrapper } from '../Components/atoms/AboutmeWrapper';
 import { SectionTitle } from '../Components/atoms/SectionTitle';
 import { Project } from '../Components/molecules/Project';
