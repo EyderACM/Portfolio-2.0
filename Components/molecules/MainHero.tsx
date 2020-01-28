@@ -3,10 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { SplashText } from '../atoms/SplashText'
 import { MainHeroWrapper } from '../atoms/MainHeroWrapper';
 import { DescriptionText } from '../atoms/DescriptionText';
-import { BlueBlobImage } from '../atoms/BlueBlobImage';
-import { RedBlobImage } from '../atoms/RedBlobImage';
-import { OrangeBlobImage } from '../atoms/OrangeBlobImage';
-import { Container } from 'next/app';
+import { ProjectBlob } from '../atoms/ProjectBlob';
 import { pixelToRem } from '../../utils/pixelToRem';
 // @ts-ignore
 import { Circ, Back, TimelineMax, Power3, TweenMax } from 'gsap/dist/gsap';
@@ -84,9 +81,9 @@ export const MainHero = () => {
   
     return (      
       <MainHeroWrapper ref={elem => {homeScreen = elem}}>
-        <BlueBlobImage ref={elem => {blueBlobElement = elem}} src={blueBlob}/>
-        <RedBlobImage ref={elem => {redBlobElement = elem}} src={redBlob}/>
-        <OrangeBlobImage ref={elem => {orangeBlobElement = elem}} src={orangeBlob}/>
+        <ProjectBlob top={-60} left={-400} width={400} ref={elem => {blueBlobElement = elem}}  src={blueBlob}/>
+        <ProjectBlob bottom={-70} right={-430} width={400} ref={elem => {redBlobElement = elem}} src={redBlob}/>        
+        <ProjectBlob bottom={-50} left={-400} width={400} ref={elem => {orangeBlobElement = elem}} src={orangeBlob}/>        
           <SplashText ref={elem => {titleText = elem}}>I'm Eyder</SplashText>
           <DescriptionText ref={elem => {writterText = elem}}>a&nbsp;{word}</DescriptionText>
           <SociallogosContainer>

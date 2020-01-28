@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { HamburguerBlob } from '../atoms/HamburguerBlob';
 // @ts-ignore
 import blobImage from '../../static/images/hamburguerBlob.svg';

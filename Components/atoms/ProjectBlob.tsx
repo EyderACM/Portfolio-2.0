@@ -2,15 +2,17 @@ import styled from 'styled-components';
 import { pixelToRem } from '../../utils/pixelToRem';
 
 export interface IProjectBlob {
-  top: number;
+  top?: number;
   left?: number;
   right?: number;
+  bottom?: number;
   width: number;
 }
 
-export const ProjectBlob = styled.img(({top, left, right, width}: IProjectBlob) => `
+export const ProjectBlob = styled.img(({top, left, right, bottom, width}: IProjectBlob) => `
   position: absolute;
-  top: ${pixelToRem(top)};
+  bottom: ${bottom ? pixelToRem(bottom) : "auto"}; 
+  top: ${top ? pixelToRem(top) : "auto"};
   left: ${left ? pixelToRem(left) : "auto"};
   right: ${right ? pixelToRem(right) : "auto"};
   width: ${pixelToRem(width)};
