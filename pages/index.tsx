@@ -8,8 +8,8 @@ import { MainHero } from '../Components/molecules/MainHero';
 const Main = () => {		
 
 		const GlobalStyle = createGlobalStyle`
-			body{
-				overflow: hidden;
+			html {
+				overflow: hidden;			
 			}	
 		`
 
