@@ -3,9 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 import { SplashText } from '../atoms/SplashText'
 import { MainHeroWrapper } from '../atoms/MainHeroWrapper';
 import { DescriptionText } from '../atoms/DescriptionText';
-import { BlueBlobImage } from '../atoms/BlueBlobImage';
-import { RedBlobImage } from '../atoms/RedBlobImage';
-import { OrangeBlobImage } from '../atoms/OrangeBlobImage';
 import { ProjectBlob } from '../atoms/ProjectBlob';
 import { pixelToRem } from '../../utils/pixelToRem';
 // @ts-ignore
