@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container } from 'next/app';
-import { Layout } from '../Components/Layouts/Layout';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { ContentWrapper } from '../Components/atoms/ContentWrapper';
 import { MainHero } from '../Components/molecules/MainHero';
+import { ProofText } from '../Components/atoms/ProofText';
 
 const Main = () => {		
 
@@ -11,19 +11,6 @@ const Main = () => {
 			html {
 				overflow: hidden;			
 			}	
-		`
-
-		const ProofText = styled.h3`
-			font-family: Montserrat;			
-			font-weight: 300;
-			font-size: 12px;
-			text-align: center;		
-			bottom: 10%;	
-			position: absolute;
-			bottom: 0;
-			margin-bottom: 20px;
-			left: 25%;
-			right: 25%;
 		`;		
 
     return (
@@ -31,7 +18,7 @@ const Main = () => {
 					<GlobalStyle />
 					<ContentWrapper>											
 							<MainHero />			
-							<ProofText>This work-in-progress NextJs site is being built with ❤ by Eyder A. Concha</ProofText>						
+							<ProofText>This NextJs site is being built with ❤ by Eyder A. Concha</ProofText>						
 					</ContentWrapper>
         </Container>
     );
